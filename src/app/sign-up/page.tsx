@@ -16,7 +16,6 @@ import Link from "next/link";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
-
 export default function SignUp() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -46,7 +45,8 @@ export default function SignUp() {
         router.push("/dashboard");
       }
     } catch (err) {
-      const errorMessage = err instanceof Error ? err.message : "An unexpected error occurred";
+      const errorMessage =
+        err instanceof Error ? err.message : "An unexpected error occurred";
       setError(errorMessage);
     } finally {
       setLoading(false);
