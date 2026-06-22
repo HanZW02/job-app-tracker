@@ -40,13 +40,13 @@ export default function SignUp() {
       });
 
       if (result?.error) {
-        setError(result.error.message ?? "Failed to sign up");
+        setError(result.error.message ?? "Gagal membuat akun");
       } else {
         router.push("/dashboard");
       }
     } catch (err) {
       const errorMessage =
-        err instanceof Error ? err.message : "An unexpected error occurred";
+        err instanceof Error ? err.message : "Terjadi kesalahan yang tidak terduga";
       setError(errorMessage);
     } finally {
       setLoading(false);
@@ -61,7 +61,7 @@ export default function SignUp() {
             Sign Up
           </CardTitle>
           <CardDescription className="text-gray-600">
-            Create an account to start tracking your job applications
+            Buat akun untuk mulai melacak lamaran pekerjaan Anda
           </CardDescription>
         </CardHeader>
         <form onSubmit={handleSubmit} className="space-y-4">
@@ -120,15 +120,15 @@ export default function SignUp() {
               className="w-full bg-primary hover:bg-primary/90"
               disabled={loading}
             >
-              {loading ? "Creating account..." : "Sign Up"}
+              {loading ? "Membuat akun..." : "Daftar"}
             </Button>
             <p className="text-center text-sm text-gray-600">
-              Already have an account?{" "}
+              Sudah memiliki akun?{" "}
               <Link
                 href="/sign-in"
                 className="font-medium text-primary hover:underline"
               >
-                Sign in
+                Masuk
               </Link>
             </p>
           </CardFooter>

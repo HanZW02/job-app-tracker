@@ -38,12 +38,12 @@ export default function SignIn() {
       });
 
       if (result.error) {
-        setError(result.error.message ?? "Failed to sign in");
+        setError(result.error.message ?? "Gagal masuk");
       } else {
         router.push("/dashboard");
       }
     } catch (err) {
-      setError("An unexpected error occurred");
+      setError("Terjadi kesalahan yang tidak terduga");
     } finally {
       setLoading(false);
     }
@@ -57,7 +57,7 @@ export default function SignIn() {
             Sign In
           </CardTitle>
           <CardDescription className="text-gray-600">
-            Enter your credentials to access your account
+            Masukkan kredensial Anda untuk mengakses akun Anda
           </CardDescription>
         </CardHeader>
         <form onSubmit={handleSubmit} className="space-y-4">
@@ -102,15 +102,15 @@ export default function SignIn() {
               className="w-full bg-primary hover:bg-primary/90"
               disabled={loading}
             >
-              {loading ? "Signing in..." : "Sign In"}
+              {loading ? "Masuk..." : "Masuk"}
             </Button>
             <p className="text-center text-sm text-gray-600">
-              Dont have an account?{" "}
+              Belum memiliki akun?{" "}
               <Link
                 href="/sign-up"
                 className="font-medium text-primary hover:underline"
               >
-                Sign up
+                Daftar
               </Link>
             </p>
           </CardFooter>
