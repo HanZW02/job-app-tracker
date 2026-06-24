@@ -4,6 +4,7 @@ import connectDB from "@/lib/db";
 import dns from "node:dns/promises";
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
+import { initializeUserBoard } from "../init-user-board";
 
 dns.setServers(["1.1.1.1", "1.0.0.1"]);
 
@@ -17,6 +18,17 @@ export const auth = betterAuth({
   }),
   emailAndPassword: {
     enabled: true,
+  },
+  databaseHooks: {
+    user: {
+      create: {
+        after: async (user) => {
+          if (user.id) {
+            await initializeUserBoard(user.id);
+          }
+        },
+      },
+    },
   },
 });
 
